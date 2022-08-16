@@ -7,56 +7,84 @@ import random
 from termcolor import colored
 import Wordle_Words
 
+
+# Get the 12,927 5-letter words from the wordle dictionary 
 words = Wordle_Words.WordleWords.get_words()
+
+# Pick a random word from that list to be our mystery word
 word = random.choice(words)
+
+# Pick a random word to be our girst guess
 guess = random.choice(words)
 
+# Start counter to count guesses
 counter = 1
 counter_list = []
 
 class Wordle_Solver:
+    ''' 
+    Take a random word from the wordle list and attempts to solve based on pure deduction. 
+    '''
 
     def __init__(self,words,guess,word):
         self.words = words
         self.guess = guess
         self.word = word
+        # Map out if each letter is green (match), yellow(in word at different position), or grey (not in word)
         self.mapped = Wordle_Solver.mapper(self,guess)
 
         print(f'{word} is our word \n{guess} is our guess')
 
 
     def mapper(self,guess):
-
+        '''
+        Map each letter in guess to an index, and to a color.
+    
+        Example...
+            Word = Keros
+            Guess = Begun
+            mapper = ['e', 1, 'green', 'b', 0, 'grey', 'g', 2, 'grey', 'u', 3, 'grey', 'n', 4, 'grey']
+        '''
         green = []
         yellow = []
         grey = []
 
         for i in range(0,len(word),1):
+
+            # If guess has letter at some position as word (green)
             if word[i] == guess[i]:
                 green.append(word[i])
                 green.append(i)
                 green.append('green')
 
-
+            # If guess has letter in word, but not at the same position (yellow)
             if guess[i] in word and word[i] != guess[i]:
                 yellow.append(guess[i])
                 yellow.append(i)
                 yellow.append('yellow')
 
-
+            # If guess is not in word (grey)
             if guess[i] not in word:
                 grey.append(guess[i])
                 grey.append(i)
                 grey.append('grey')
 
+        # merge lists
         merged = green+yellow+grey
+
+        print(merged)
 
         return merged
 
 
     def colorize(self):
+        '''
+        print out a colorized representation of the guess, how wordle would do it.
+        '''
 
         merged = self.mapped
+
+        print('new guess: ')
 
         for y in range(0,5,1):
             if y in merged[1::3]:
@@ -66,11 +94,22 @@ class Wordle_Solver:
 
 
     def reduction(self):
+
+        '''
+        Remove words from possibile answers by keeping all words with matches in the right position (greens), 
+        keeping all words with letters in word but not in the same position (yellows),
+        and removing all words with letters not in word. 
+        '''
+
         global counter
         mapped = self.mapped
         words = self.words
 
         def grey(words):
+
+            '''
+            Eliminate greys
+            '''
 
             grey_letters = []
             grey_words = []
@@ -93,6 +132,10 @@ class Wordle_Solver:
             return grey_words        
 
         def green(words):
+
+            '''
+            keep greens
+            '''
             
             green_letters = []
             green_words = []
@@ -121,6 +164,10 @@ class Wordle_Solver:
 
 
         def yellow(words):
+            '''
+            keep yellows
+            '''
+
             yellow_letters = []
             yellow_words = []
             for g in range(2,len(mapped),3):
@@ -136,6 +183,7 @@ class Wordle_Solver:
             return yellow_words 
             
 
+        # Run all 3 functions, if there are greys, greens, or yellows
         if 'grey' in mapped:
             words = grey(words)
 
@@ -145,22 +193,28 @@ class Wordle_Solver:
         if 'yellow' in mapped:
             words = yellow(words)
 
-        # print(f'{words} are possible choices')
+        # Print possible choices at this point
+        print(f'{words} are possible choices')
 
+        # Take a guess
         guess = random.choice(words)
 
+        # If correct word is chosen
         if guess == word:
             print(f'{guess} = {word}!')
             print(f'found in {counter} tries')
             counter_list.append(counter)
             counter = 1
 
+        # If wrong word is chosen, try again!
         else:
             counter = counter + 1
             self.words = words
             self.mapped = Wordle_Solver.mapper(self,guess)
             Wordle_Solver.colorize(self)
             Wordle_Solver.reduction(self)
+
+
 
 instance = Wordle_Solver(words,guess,word)
 instance.colorize()
