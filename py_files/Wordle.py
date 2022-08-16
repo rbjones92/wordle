@@ -72,8 +72,6 @@ class Wordle_Solver:
         # merge lists
         merged = green+yellow+grey
 
-        print(merged)
-
         return merged
 
 
@@ -193,8 +191,11 @@ class Wordle_Solver:
         if 'yellow' in mapped:
             words = yellow(words)
 
+        # Eliminate Duplicates 
+        words = list(set(words))
+        
         # Print possible choices at this point
-        print(f'{words} are possible choices')
+        print(f'{(words)} are possible choices')
 
         # Take a guess
         guess = random.choice(words)
