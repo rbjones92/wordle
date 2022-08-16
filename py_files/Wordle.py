@@ -18,7 +18,7 @@ word = random.choice(words)
 guess = random.choice(words)
 
 # Start counter to count guesses
-counter = 1
+counter = 2
 counter_list = []
 
 class Wordle_Solver:
