@@ -9,8 +9,9 @@ It follows these rules:
 1. Grey letters are added to a list and the next guess cannot have these letters
 2. Yellow letters are added to a list and the next guess must have these letters, although not in that specified order
 3. Green letters are added to a list and the next guess must included these letters in their proper index.
-Using these rules, words are removed from the list of potential words it could be. The program then takes a random guess of reduced words.  
-Continue this workflow recursively until a match is found.  
+4. Words are removed from the list as specified above. 
+5. The program, at random, takes a guess from reduced word list.
+6. Continue this workflow recursively until a match is found.  
 
 ## Technologies
 - Python 3.7
