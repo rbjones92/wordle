@@ -19,5 +19,8 @@ It follows these rules:
 
 ## Local Execution
 Solving for the word: <br>
-![Alt Text](py_files/wordle_terminal_2.JPG?raw=true "load output")
+![Alt Text](py_files/wordle_terminal_2.JPG?raw=true "program run in terminal")
+
+![Alt Text](py_files/wordle_terminal_3.JPG?raw=true "program run in terminal")
+
 
