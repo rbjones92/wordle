@@ -19,6 +19,6 @@ It follows these rules:
 
 ## Local Execution
 ![Alt Text](py_files/wordle_terminal_2.JPG?raw=true "program run in terminal")
-![Alt Text](py_files/wordle_terminal_3.JPG?raw=true "program run in terminal")
 ![Alt Text](py_files/wordle_terminal_4.JPG?raw=true "program run in terminal")
+![Alt Text](py_files/wordle_terminal_3.JPG?raw=true "program run in terminal")
 
