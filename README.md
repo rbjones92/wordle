@@ -12,5 +12,5 @@ This project scrapes a website for all 5-letter words, and then solves for the w
 
 ## Local Execution
 Solving for the word
-![Alt Text](screenshot/wordle_terminal.JPG?raw=true "load output")
+![Alt Text](py_files/wordle_terminal.JPG?raw=true "load output")
 
