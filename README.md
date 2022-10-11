@@ -19,5 +19,5 @@ It follows these rules:
 
 ## Local Execution
 Solving for the word: <br>
-![Alt Text](py_files/wordle_terminal.JPG?raw=true "load output")
+![Alt Text](py_files/wordle_terminal_2.JPG?raw=true "load output")
 
