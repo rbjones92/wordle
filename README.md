@@ -11,6 +11,6 @@ This project scrapes a website for all 5-letter words, and then solves for the w
 - VS Code
 
 ## Local Execution
-Solving for the word
+Solving for the word <br>
 ![Alt Text](py_files/wordle_terminal.JPG?raw=true "load output")
 
