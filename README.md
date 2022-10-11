@@ -18,7 +18,6 @@ It follows these rules:
 - VS Code
 
 ## Local Execution
-Runs: <br>
 ![Alt Text](py_files/wordle_terminal_2.JPG?raw=true "program run in terminal")
 ![Alt Text](py_files/wordle_terminal_3.JPG?raw=true "program run in terminal")
 ![Alt Text](py_files/wordle_terminal_4.JPG?raw=true "program run in terminal")
